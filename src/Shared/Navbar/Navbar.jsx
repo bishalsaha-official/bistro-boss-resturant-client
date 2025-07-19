@@ -7,7 +7,7 @@ const Navbar = () => {
         <li><NavLink>Home2</NavLink></li>
     </>
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar fixed opacity-60 z-20 bg-black text-white py-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
