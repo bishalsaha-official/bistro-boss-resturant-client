@@ -6,12 +6,13 @@ import slide3 from '../../../assets/home/03.png'
 import slide4 from '../../../assets/home/04.jpg'
 import slide5 from '../../../assets/home/05.png'
 import slide6 from '../../../assets/home/06.png'
+import './Banner.css'
 
 
 const Banner = () => {
     return (
         <div>
-            <Carousel>
+            <Carousel >
                 <div>
                     <img src={slide1} />
                 </div>
