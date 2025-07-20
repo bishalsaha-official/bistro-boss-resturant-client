@@ -15,7 +15,7 @@ export default function Footer() {
 
                 {/* Follow Us */}
                 <div className="text-center bg-[#111827] px-6 py-10 space-y-2 ">
-                    <h2 className="text-lg font-semibold">Follow US</h2>
+                    <h2 className="text-lg font-semibold">FOLLOW US</h2>
                     <p>Join us on social media</p>
                     <div className="flex justify-center gap-4 text-xl">
                         <a href="#"><FaFacebookF /></a>
