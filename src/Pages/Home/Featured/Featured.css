@@ -1,0 +1,15 @@
+.featured-btn{
+    background-color: none;
+    border: 0;
+    border-bottom: 4px solid #D99904;
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    transition: .5s;
+}
+
+.featured-btn:hover{
+    background-color: #fff;
+    color: #D99904;
+    cursor: pointer;
+}
