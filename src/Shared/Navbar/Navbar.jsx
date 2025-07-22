@@ -3,11 +3,10 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink>Home1</NavLink></li>
-        <li><NavLink>Home2</NavLink></li>
+        <li><NavLink to="/menu">Our Menu</NavLink></li>
     </>
     return (
-        <div className="navbar fixed opacity-60 z-20 bg-black text-white py-4">
+        <div className="navbar fixed z-10 bg-black/40 backdrop-blur-sm text-white py-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
