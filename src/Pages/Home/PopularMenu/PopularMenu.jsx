@@ -20,7 +20,7 @@ const PopularMenu = () => {
                 }
             </div>
             <div className="text-center my-5">
-                <Link className="border-b-4 border-b-[#D99904] px-5 py-2.5 rounded-b-3xl font-semibold text-[#1F2937]">View Full Menu</Link>
+                <Link to='/menu' className="border-b-4 border-b-[#D99904] px-5 py-2.5 rounded-b-3xl font-semibold text-[#1F2937]">View Full Menu</Link>
             </div>
         </section>
     );

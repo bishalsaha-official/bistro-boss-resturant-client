@@ -1,0 +1,15 @@
+.food-card-btn{
+    background-color: #E8E8E8;
+    border: 0;
+    border-bottom: 4px solid #D99904;
+    border-radius: 15px;
+    padding: 20px 35px;
+    margin-top: 20px;
+    transition: .5s;
+}
+
+.food-card-btn:hover{
+    background-color: #111827;
+    color: #D99904;
+    cursor: pointer;
+}
