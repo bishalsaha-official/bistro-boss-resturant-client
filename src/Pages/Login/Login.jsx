@@ -26,7 +26,7 @@ const Login = () => {
         if (validateCaptcha(user_captcha_value) == true) {
             setDisabled(false)
         }
-        else{
+        else {
             setDisabled(true)
         }
     }
@@ -51,6 +51,7 @@ const Login = () => {
                         <div className='mb-3'>
                             <label className="block mb-1 font-medium">Password</label>
                             <input type="password" name='password' placeholder="Enter your password" className="input input-bordered w-full" />
+                            <label className='mb-3'><a className="cursor-pointer hover:text-amber-500 hover:font-semibold text-black">Forgot your password?</a></label>
                         </div>
 
                         <div className='mb-3'>
@@ -64,7 +65,6 @@ const Login = () => {
                             <input disabled={disabled} type="submit" value="Sign In" className={` ${disabled ? "bg-gradient-to-r from-amber-200 to-amber-200" : "bg-gradient-to-r from-amber-400 to-amber-500"} btn btn-primary text-white w-full  border-none`} />
                         </div>
                     </form>
-
                     <p className="text-center text-sm">
                         New here?{' '} <Link className="text-amber-600 font-medium">Create a New Account</Link>
                     </p>

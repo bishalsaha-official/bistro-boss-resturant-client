@@ -1,7 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import Cover from "../../../Shared/Cover/Cover";
 import banner from "../../../assets/menu/banner3.jpg"
-import useMenu from "../../../hooks/useMenu";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
 import saladImg from "../../../assets/menu/salad-bg.jpg"
@@ -9,6 +7,7 @@ import dessertImg from "../../../assets/menu/dessert-bg.jpeg"
 import pizzaImg from "../../../assets/menu/pizza-bg.jpg"
 import drinksImg from "../../../assets/menu/banner3.jpg"
 import soupImg from "../../../assets/menu/soup-bg.jpg"
+import useMenu from "../../../hooks/useMenu";
 
 const Menu = () => {
     const [menu] = useMenu()
@@ -21,9 +20,6 @@ const Menu = () => {
 
     return (
         <div>
-            <Helmet>
-                <title>Bistro Boss | Menu</title>
-            </Helmet>
             <Cover bgImg={banner} title={"Our Menu"} description={"Would You like to Try this dish"}></Cover>
             <SectionTitle heading="TODAY'S OFFER" subHeading="Don't miss"></SectionTitle>
             {/* Offered Items */}

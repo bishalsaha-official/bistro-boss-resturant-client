@@ -6,7 +6,6 @@ import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../../hooks/useMenu';
 import TabOrder from '../TabOrder/TabOrder';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 const Order = () => {
     const categories = ['salad', 'dessert', 'drinks', 'soup', 'pizza']
@@ -23,9 +22,6 @@ const Order = () => {
     const pizza = menu.filter(items => items.category === 'pizza')
     return (
         <div>
-            <Helmet>
-                <title>Bistro Boss | Order</title>
-            </Helmet>
             <Cover bgImg={orderCover} title={"order now"} description={"Would You like to Try this dish"}></Cover>
             <div className='max-w-10/12 mx-auto my-10'>
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
