@@ -49,7 +49,10 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <button onClick={handleSignOut} className="btn">Sign Out</button>
+                        <>
+                            <p className="mx-3 text-xl font-semibold">{user?.displayName}</p>
+                            <button onClick={handleSignOut} className="btn">Sign Out</button>
+                        </>
                         :
                         <NavLink className="btn btn-secondary px-5" to="login">Login</NavLink>
                 }
