@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import bg from '../../assets/others/authentication.png'
 import authentication from '../../assets/others/authentication1.png'
-import { FaFacebookF, FaGoogle, FaGithub } from "react-icons/fa";
+import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
     const captchaRef = useRef(null)
     const [disabled, setDisabled] = useState(true)
+    const { loginUser } = useContext(AuthContext)
 
     useEffect(() => {
         loadCaptchaEnginge(4);
@@ -19,6 +21,15 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         console.log(email, password)
+        // login user
+        loginUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+
     }
 
     const handleValidateCaptcha = () => {
@@ -66,7 +77,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className="text-center text-sm">
-                        New here?{' '} <Link className="text-amber-600 font-medium">Create a New Account</Link>
+                        New here?{' '} <Link to="/signup" className="text-amber-600 font-medium">Create a New Account</Link>
                     </p>
 
                     <div className="divider">Or sign in with</div>
@@ -76,9 +87,6 @@ const Login = () => {
                         </button>
                         <button className="btn btn-circle btn-outline">
                             <FaGoogle className="text-lg" />
-                        </button>
-                        <button className="btn btn-circle btn-outline">
-                            <FaGithub className="text-lg" />
                         </button>
                     </div>
                 </div>
