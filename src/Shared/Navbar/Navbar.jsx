@@ -29,11 +29,10 @@ const Navbar = () => {
         <li><NavLink to="/order/salad">Order</NavLink></li>
         <li><NavLink to="/secret">secret</NavLink></li>
         <li className="bg-info rounded">
-            <NavLink to="/">
+            <NavLink to="/dashboard/cart">
                 <FaCartPlus></FaCartPlus> <div className="badge badge-sm badge-secondary">+ {cart.length}</div>
             </NavLink>
         </li>
-
     </>
 
     return (

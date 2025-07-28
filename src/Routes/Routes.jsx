@@ -7,36 +7,48 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoutes from "./PrivateRoutes";
 import Secret from "../Shared/Secret/Secret";
+import Dashboard from "../Layout/Dashboard";
+import Cart from "../Pages/Dashboard/Cart/Cart";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-          path: '/menu',
-          element: <Menu></Menu>
-        },
-        {
-          path: '/order/:category',
-          element: <Order></Order>
-        },
-        {
-          path: '/login',
-          element: <Login></Login>
-        },
-        {
-          path: '/signup',
-          element: <SignUp></SignUp>
-        },
-        {
-          path: '/secret',
-          element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
-        }
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/menu',
+        element: <Menu></Menu>
+      },
+      {
+        path: '/order/:category',
+        element: <Order></Order>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/signup',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: '/secret',
+        element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
+      }
     ]
   },
+  {
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: '/dashboard/cart',
+        element: <Cart></Cart>
+      }
+    ]
+  }
 ]);
