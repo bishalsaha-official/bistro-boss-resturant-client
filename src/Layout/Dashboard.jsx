@@ -17,7 +17,7 @@ const Dashboard = () => {
                     <img className="w-10" src={logo} alt="" />
                     <h2 className="text-xl font-bold">BISTRO BOSS RESTAURANT</h2>
                 </div>
-                <ul className="menu uppercase">
+                <ul className="menu uppercase w-full font-semibold">
                     <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
                     <li><NavLink to="/dashboard/reservation"><SlCalender></SlCalender> reservation</NavLink></li>
                     <li><NavLink to="/dashboard/payment"><MdOutlinePayment></MdOutlinePayment> Payment History</NavLink></li>
@@ -28,11 +28,11 @@ const Dashboard = () => {
 
                 <div className="border-t border-white my-6"></div>
 
-                <ul className="menu uppercase">
+                <ul className="menu uppercase font-semibold">
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink></li>
-                    <li><NavLink to="menu"><IoMdMenu></IoMdMenu> Menu</NavLink></li>
+                    <li><NavLink to="/menu"><IoMdMenu></IoMdMenu> Menu</NavLink></li>
                     <li><NavLink to="/order/salad"><FaShoppingBag></FaShoppingBag> Shop</NavLink></li>
-                    <li><NavLink to=""><MdEmail></MdEmail> Contact</NavLink></li>
+                    <li><NavLink to="contact"><MdEmail></MdEmail> Contact</NavLink></li>
                 </ul>
             </aside>
 

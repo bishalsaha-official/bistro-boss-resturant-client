@@ -1,9 +1,40 @@
 import useCart from "../../../hooks/useCart";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import './cart.css'
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Cart = () => {
-    const [cart] = useCart()
+    const [cart, refetch] = useCart()
     const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+    const axiosSecure = useAxiosSecure()
+    const handleDeleteItem = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/carts/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
+
     return (
         <>
             <div className="max-w-9/12 mx-auto bg-white p-10">
@@ -29,7 +60,7 @@ const Cart = () => {
                             {
                                 cart.map((item, index) => <tr key={index}>
                                     <td>
-                                        1
+                                        {index + 1}
                                     </td>
                                     <td>
                                         <div className="avatar">
@@ -41,8 +72,8 @@ const Cart = () => {
                                     <td>{item.name}</td>
                                     <td>${item.price}</td>
                                     <td>
-                                        <div >
-                                            <button className="btn btn-ghost bg-[#D1A054] text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
+                                        <div>
+                                            <button onClick={() => handleDeleteItem(item._id)} className="btn btn-ghost bg-[#D1A054] text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
                                         </div>
                                     </td>
                                 </tr>)
