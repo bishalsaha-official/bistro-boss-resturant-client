@@ -1,14 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from '../../src/assets/dashboard/logo.png'
-import { FaHome, FaCartPlus, FaShoppingBag   } from "react-icons/fa";
+import { FaHome, FaCartPlus, FaShoppingBag } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
-import { MdOutlinePayment, MdOutlineReviews, MdEmail  } from "react-icons/md";
+import { MdOutlinePayment, MdOutlineReviews, MdEmail } from "react-icons/md";
 import { FaBook } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
-
-
+import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
+    const [cart] = useCart()
     return (
         <div className="flex min-h-screen">
             {/* Sidebar */}
@@ -20,8 +20,8 @@ const Dashboard = () => {
                 <ul className="menu uppercase w-full font-semibold">
                     <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
                     <li><NavLink to="/dashboard/reservation"><SlCalender></SlCalender> reservation</NavLink></li>
+                    <li><NavLink to="/dashboard/cart"><FaCartPlus></FaCartPlus> My Cart ({cart.length})</NavLink></li>
                     <li><NavLink to="/dashboard/payment"><MdOutlinePayment></MdOutlinePayment> Payment History</NavLink></li>
-                    <li><NavLink to="/dashboard/cart"><FaCartPlus></FaCartPlus> My Cart</NavLink></li>
                     <li><NavLink to="/dashboard/review"><MdOutlineReviews></MdOutlineReviews> Add Review</NavLink></li>
                     <li><NavLink to="/dashboard/booking"><FaBook></FaBook> My Booking</NavLink></li>
                 </ul>

@@ -1,18 +1,18 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import bg from '../../assets/others/authentication.png'
 import authentication from '../../assets/others/authentication1.png'
-import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 
 const Login = () => {
     const captchaRef = useRef(null)
     const [disabled, setDisabled] = useState(true)
-    const { loginUser, googleLogin } = useContext(AuthContext)
+    const { loginUser } = useContext(AuthContext)
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -21,23 +21,6 @@ const Login = () => {
     useEffect(() => {
         loadCaptchaEnginge(4);
     }, [])
-
-    const handleGoogleLogin = () => {
-        googleLogin()
-            .then((result) => {
-                const user = result.user;
-                console.log(user)
-                Swal.fire({
-                    title: "Login Successful",
-                    icon: "success",
-                    draggable: true
-                });
-                navigate(from, { replace: true });
-            }).catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage)
-            });
-    }
 
     const handleLogin = e => {
         e.preventDefault()
@@ -115,13 +98,8 @@ const Login = () => {
                         </p>
 
                         <div className="divider">Or sign in with</div>
-                        <div className="flex justify-center gap-4">
-                            <button className="btn btn-circle btn-outline">
-                                <FaFacebookF className="text-lg" />
-                            </button>
-                            <button onClick={handleGoogleLogin} className="btn btn-circle btn-outline">
-                                <FaGoogle className="text-lg" />
-                            </button>
+                        <div className="">
+                            <SocialLogin text="LogIn with Google"></SocialLogin>
                         </div>
                     </div>
                 </div>

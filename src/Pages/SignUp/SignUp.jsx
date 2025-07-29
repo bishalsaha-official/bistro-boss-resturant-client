@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import bg from '../../assets/others/authentication.png'
 import authentication from '../../assets/others/authentication1.png'
 import { useForm } from "react-hook-form";
@@ -7,22 +6,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
     const { register, reset, handleSubmit, formState: { errors }, } = useForm()
-    const { createUser, googleLogin, userUpdateProfile } = useContext(AuthContext)
+    const { createUser, userUpdateProfile } = useContext(AuthContext)
     const navigate = useNavigate()
-
-    const handleGoogleLogin = () => {
-        googleLogin()
-            .then((result) => {
-                const user = result.user;
-                console.log(user)
-            }).catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage)
-            });
-    }
+    const axiosPublic = useAxiosPublic()
 
     const onSubmit = (data) => {
         console.log(data)
@@ -32,13 +23,23 @@ const SignUp = () => {
                 console.log(loggedUser)
                 userUpdateProfile(data.name, data.photo)
                     .then(() => {
-                        reset()
-                        Swal.fire({
-                            title: "Successfully Created",
-                            icon: "success",
-                            draggable: true
-                        });
-                        navigate('/')
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset()
+                                    Swal.fire({
+                                        title: "Successfully Created",
+                                        icon: "success",
+                                        draggable: true
+                                    });
+                                    navigate('/')
+                                }
+                            })
+
                     }).catch((error) => {
                         console.log(error)
                     });
@@ -105,13 +106,8 @@ const SignUp = () => {
                         </p>
 
                         <div className="divider">Or sign in with</div>
-                        <div className="flex justify-center gap-4">
-                            <button className="btn btn-circle btn-outline">
-                                <FaFacebookF className="text-lg" />
-                            </button>
-                            <button onClick={handleGoogleLogin} className="btn btn-circle btn-outline">
-                                <FaGoogle className="text-lg" />
-                            </button>
+                        <div className="">
+                            <SocialLogin text="SignUp with Google"></SocialLogin>
                         </div>
                     </div>
                     {/* Right side illustration */}
