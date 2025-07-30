@@ -98,7 +98,7 @@ const SignUp = () => {
                                 )}
                             </div>
                             <div className='my-5'>
-                                <input type="submit" value="Sign In" className="btn btn-primary text-white w-full  border-none bg-gradient-to-r from-amber-400 to-amber-500" />
+                                <input type="submit" value="Sign Up" className="btn btn-primary text-white w-full  border-none bg-gradient-to-r from-amber-400 to-amber-500" />
                             </div>
                         </form>
                         <p className="text-center text-sm">

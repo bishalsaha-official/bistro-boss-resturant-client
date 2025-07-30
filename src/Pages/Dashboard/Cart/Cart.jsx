@@ -58,9 +58,7 @@ const Cart = () => {
                         <tbody className="text-xl">
                             {
                                 cart.map((item, index) => <tr key={index}>
-                                    <td>
-                                        {index + 1}
-                                    </td>
+                                    <td>{index + 1}</td>
                                     <td>
                                         <div className="avatar">
                                             <div className="mask mask-squircle h-12 w-12">
@@ -71,9 +69,7 @@ const Cart = () => {
                                     <td>{item.name}</td>
                                     <td>${item.price}</td>
                                     <td>
-                                        <div>
-                                            <button onClick={() => handleDeleteItem(item._id)} className="btn btn-ghost bg-[#D1A054] text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
-                                        </div>
+                                        <button onClick={() => handleDeleteItem(item._id)} className="btn btn-ghost bg-[#D1A054] text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
                                     </td>
                                 </tr>)
                             }
