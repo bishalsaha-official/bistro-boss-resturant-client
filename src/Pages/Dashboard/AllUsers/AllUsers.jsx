@@ -89,13 +89,13 @@ const AllUsers = () => {
                                                 <p>Admin</p>
                                                 :
                                                 <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-amber-600 text-white">
-                                                    <FaUsers></FaUsers>
+                                                    <FaUsers className="text-xl"></FaUsers>
                                                 </button>
                                         }
                                     </td>
                                     <td>
                                         <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost bg-[#D1A054] text-white">
-                                            <RiDeleteBin6Line></RiDeleteBin6Line>
+                                            <RiDeleteBin6Line className="text-xl"></RiDeleteBin6Line>
                                         </button>
                                     </td>
                                 </tr>)

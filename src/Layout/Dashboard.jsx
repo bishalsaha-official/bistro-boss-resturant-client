@@ -6,7 +6,6 @@ import { MdOutlinePayment, MdOutlineReviews, MdEmail } from "react-icons/md";
 import { FaBook } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { IoIosRestaurant } from "react-icons/io";
-
 import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/useAdmin";
 
@@ -26,20 +25,20 @@ const Dashboard = () => {
                     {
                         isAdmin ?
                             <>
-                                <li><NavLink to="/dashboard/adminHome"><FaHome></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink to="/dashboard/addItems"><IoIosRestaurant></IoIosRestaurant> Add Items</NavLink></li>
-                                <li><NavLink to="/dashboard/manageItems"><FaList></FaList> Manage Items</NavLink></li>
-                                <li><NavLink to="/dashboard/bookings"><FaBook></FaBook> Manage Bookings</NavLink></li>
-                                <li><NavLink to="/dashboard/users"><FaUsers></FaUsers> All Users</NavLink></li>
+                                <li><NavLink to="/dashboard/adminHome"><FaHome className="text-xl"></FaHome> Admin Home</NavLink></li>
+                                <li><NavLink to="/dashboard/addItems"><IoIosRestaurant className="text-xl"></IoIosRestaurant> Add Items</NavLink></li>
+                                <li><NavLink to="/dashboard/manageItems"><FaList className="text-xl"></FaList> Manage Items</NavLink></li>
+                                <li><NavLink to="/dashboard/bookings"><FaBook className="text-2l"></FaBook> Manage Bookings</NavLink></li>
+                                <li><NavLink to="/dashboard/users"><FaUsers className="text-xl"></FaUsers> All Users</NavLink></li>
                             </>
                             :
                             <>
-                                <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
-                                <li><NavLink to="/dashboard/reservation"><SlCalender></SlCalender> reservation</NavLink></li>
-                                <li><NavLink to="/dashboard/cart"><FaCartPlus></FaCartPlus> My Cart ({cart.length})</NavLink></li>
-                                <li><NavLink to="/dashboard/payment"><MdOutlinePayment></MdOutlinePayment> Payment History</NavLink></li>
-                                <li><NavLink to="/dashboard/review"><MdOutlineReviews></MdOutlineReviews> Add Review</NavLink></li>
-                                <li><NavLink to="/dashboard/booking"><FaBook></FaBook> My Booking</NavLink></li>
+                                <li><NavLink to="/dashboard/userHome"><FaHome className="text-xl"></FaHome> User Home</NavLink></li>
+                                <li><NavLink to="/dashboard/reservation"><SlCalender className="text-xl"></SlCalender> reservation</NavLink></li>
+                                <li><NavLink to="/dashboard/cart"><FaCartPlus className="text-xl"></FaCartPlus> My Cart ({cart.length})</NavLink></li>
+                                <li><NavLink to="/dashboard/payment"><MdOutlinePayment className="text-xl"></MdOutlinePayment> Payment History</NavLink></li>
+                                <li><NavLink to="/dashboard/review"><MdOutlineReviews className="text-xl"></MdOutlineReviews> Add Review</NavLink></li>
+                                <li><NavLink to="/dashboard/booking"><FaBook className="text-xl"></FaBook> My Booking</NavLink></li>
                             </>
                     }
                 </ul>
@@ -48,10 +47,10 @@ const Dashboard = () => {
 
                 {/* Shared */}
                 <ul className="menu uppercase font-semibold">
-                    <li><NavLink to="/"><FaHome></FaHome> Home</NavLink></li>
-                    <li><NavLink to="/menu"><IoMdMenu></IoMdMenu> Menu</NavLink></li>
-                    <li><NavLink to="/order/salad"><FaShoppingBag></FaShoppingBag> Shop</NavLink></li>
-                    <li><NavLink to="contact"><MdEmail></MdEmail> Contact</NavLink></li>
+                    <li><NavLink to="/"><FaHome className="text-xl"></FaHome> Home</NavLink></li>
+                    <li><NavLink to="/menu"><IoMdMenu className="text-xl"></IoMdMenu> Menu</NavLink></li>
+                    <li><NavLink to="/order/salad"><FaShoppingBag className="text-xl"></FaShoppingBag> Shop</NavLink></li>
+                    <li><NavLink to="contact"><MdEmail className="text-xl"></MdEmail> Contact</NavLink></li>
                 </ul>
             </aside>
 
