@@ -14,8 +14,8 @@ const FoodCard = ({ items }) => {
     const axiosSecure = useAxiosSecure()
     const [, refetch] = useCart()
 
-    const handleAddToCart = food => {
-        console.log(food)
+    const handleAddToCart = () => {
+        // console.log(food)
         if (user && user.email) {
             console.log(user.email)
             const cartItem = {
@@ -67,7 +67,7 @@ const FoodCard = ({ items }) => {
                 <h2 className="font-bold text-[#151515] text-xl">{name}</h2>
                 <p className="text-[#737373]">{recipe}</p>
                 <div className="card-actions justify-end">
-                    <button onClick={() => handleAddToCart(items)} className="btn food-card-btn mx-auto my-5 text-xl">Order Now</button>
+                    <button onClick={handleAddToCart} className="btn food-card-btn mx-auto my-5 text-xl">Order Now</button>
                 </div>
             </div>
         </div>

@@ -36,7 +36,7 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/userHome"><FaHome className="text-xl"></FaHome> User Home</NavLink></li>
                                 <li><NavLink to="/dashboard/reservation"><SlCalender className="text-xl"></SlCalender> reservation</NavLink></li>
                                 <li><NavLink to="/dashboard/cart"><FaCartPlus className="text-xl"></FaCartPlus> My Cart ({cart.length})</NavLink></li>
-                                <li><NavLink to="/dashboard/payment"><MdOutlinePayment className="text-xl"></MdOutlinePayment> Payment History</NavLink></li>
+                                <li><NavLink to="/dashboard/paymentHistory"><MdOutlinePayment className="text-xl"></MdOutlinePayment> Payment History</NavLink></li>
                                 <li><NavLink to="/dashboard/review"><MdOutlineReviews className="text-xl"></MdOutlineReviews> Add Review</NavLink></li>
                                 <li><NavLink to="/dashboard/booking"><FaBook className="text-xl"></FaBook> My Booking</NavLink></li>
                             </>

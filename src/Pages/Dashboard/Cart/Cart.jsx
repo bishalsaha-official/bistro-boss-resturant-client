@@ -3,6 +3,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import './cart.css'
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const [cart, refetch] = useCart()
@@ -24,9 +25,11 @@ const Cart = () => {
                         if (res.data.deletedCount > 0) {
                             refetch()
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
+                                position: "top-end",
+                                icon: "success",
+                                title: "Item has been deleted",
+                                showConfirmButton: false,
+                                timer: 1000
                             });
                         }
                     })
@@ -40,7 +43,15 @@ const Cart = () => {
                 <div className="flex justify-between">
                     <h2 className="text-2xl font-bold">Cart Items: {cart.length}</h2>
                     <h2 className="text-2xl font-bold">Total Price: ${totalPrice}</h2>
-                    <button className="btn bg-[#D1A054] text-white">Pay</button>
+                    {
+                        cart.length ?
+                            <Link to="/dashboard/payment">
+                                <button className="btn bg-[#D1A054] text-white">Pay</button>
+                            </Link> :
+                            <Link>
+                                <button disabled className="btn bg-[#D1A054] text-white">Pay</button>
+                            </Link>
+                    }
                 </div>
                 {/* Show item */}
                 <div className="overflow-x-auto mt-10">
