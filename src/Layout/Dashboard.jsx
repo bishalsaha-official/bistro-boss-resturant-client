@@ -28,17 +28,14 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/adminHome"><FaHome className="text-xl"></FaHome> Admin Home</NavLink></li>
                                 <li><NavLink to="/dashboard/addItems"><IoIosRestaurant className="text-xl"></IoIosRestaurant> Add Items</NavLink></li>
                                 <li><NavLink to="/dashboard/manageItems"><FaList className="text-xl"></FaList> Manage Items</NavLink></li>
-                                <li><NavLink to="/dashboard/bookings"><FaBook className="text-2l"></FaBook> Manage Bookings</NavLink></li>
                                 <li><NavLink to="/dashboard/users"><FaUsers className="text-xl"></FaUsers> All Users</NavLink></li>
                             </>
                             :
                             <>
                                 <li><NavLink to="/dashboard/userHome"><FaHome className="text-xl"></FaHome> User Home</NavLink></li>
-                                <li><NavLink to="/dashboard/reservation"><SlCalender className="text-xl"></SlCalender> reservation</NavLink></li>
                                 <li><NavLink to="/dashboard/cart"><FaCartPlus className="text-xl"></FaCartPlus> My Cart ({cart.length})</NavLink></li>
                                 <li><NavLink to="/dashboard/paymentHistory"><MdOutlinePayment className="text-xl"></MdOutlinePayment> Payment History</NavLink></li>
-                                <li><NavLink to="/dashboard/review"><MdOutlineReviews className="text-xl"></MdOutlineReviews> Add Review</NavLink></li>
-                                <li><NavLink to="/dashboard/booking"><FaBook className="text-xl"></FaBook> My Booking</NavLink></li>
+                                <li><NavLink to="/dashboard/addReview"><MdOutlineReviews className="text-xl"></MdOutlineReviews> Add Review</NavLink></li>
                             </>
                     }
                 </ul>

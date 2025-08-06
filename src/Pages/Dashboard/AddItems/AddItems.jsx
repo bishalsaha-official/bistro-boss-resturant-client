@@ -3,6 +3,7 @@ import { IoIosRestaurant } from "react-icons/io";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -50,6 +51,9 @@ const AddItems = () => {
 
     return (
         <div className="max-w-3xl mx-auto p-6 bg-[#F3F3F3]">
+            <Helmet>
+                <title>Bistro Boss | Add Items</title>
+            </Helmet>
             <h2 className="text-yellow-800 font-semibold text-2xl mb-10 text-center uppercase">Add An Items</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Recipe Name */}

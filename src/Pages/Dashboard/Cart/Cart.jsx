@@ -4,6 +4,7 @@ import './cart.css'
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
     const [cart, refetch] = useCart()
@@ -39,6 +40,9 @@ const Cart = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Bistro Boss | Cart</title>
+            </Helmet>
             <div className="max-w-9/12 mx-auto bg-white p-10">
                 <div className="flex justify-between">
                     <h2 className="text-2xl font-bold">Cart Items: {cart.length}</h2>

@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { BsCashCoin } from "react-icons/bs";
 import { FaUsers, FaTruck, FaCartPlus } from "react-icons/fa";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Pie, PieChart, Legend, } from 'recharts';
+import { Helmet } from "react-helmet";
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -65,6 +66,9 @@ const AdminHome = () => {
 
     return (
         <div className="max-w-10/12 mx-auto">
+            <Helmet>
+                <title>Bistro Boss | Admin Home</title>
+            </Helmet>
             <h2 className="text-2xl font-semibold uppercase">
                 {
                     user ? <span>Welcome {user.displayName}</span> : <span>Admin Home</span>

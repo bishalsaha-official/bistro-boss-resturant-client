@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure()
@@ -60,6 +61,9 @@ const AllUsers = () => {
 
     return (
         <>
+        <Helmet>
+            <title>Bistro Boss | All Users</title>
+        </Helmet>
             <div className="max-w-9/12 mx-auto bg-white p-10">
                 <div className="flex justify-between">
                     <h2 className="text-2xl font-bold">Total Users: {users.length}</h2>
