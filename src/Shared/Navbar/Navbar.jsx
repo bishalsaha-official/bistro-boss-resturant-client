@@ -4,10 +4,12 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaCartPlus } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [cart] = useCart()
+    const [isAdmin] = useAdmin()
 
     const handleSignOut = () => {
         logOut()
@@ -27,7 +29,12 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/menu">Our Menu</NavLink></li>
         <li><NavLink to="/order/salad">Order</NavLink></li>
-        <li><NavLink to="/secret">secret</NavLink></li>
+        {
+            user && isAdmin && <li><NavLink to='/dashboard/adminHome'>Dashboard</NavLink></li>
+        }
+        {
+            user && !isAdmin && <li><NavLink to='/dashboard/userHome'>Dashboard</NavLink></li>
+        }
         <li className="bg-info rounded">
             <NavLink to="/dashboard/cart">
                 <FaCartPlus></FaCartPlus> <div className="badge badge-sm badge-secondary">+ {cart.length}</div>
